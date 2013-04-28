@@ -17,7 +17,7 @@
     <li>Full Name: <% info.contactInfo.fullName %></li>
     <li>Bio: <% bio %></li>
     <li>Email: <% params.email %></li>
-    <li>Klout: <% info.digitalFootprint.scores.0.value %>
+    <li>Klout: <% klout  %>
   </ul>
 </div>
 </td></tr>
