@@ -32,7 +32,7 @@ any '/email' => sub {
   template 'email', {
     'info' => $content,
     socialProfiles => \@socialProfiles,
-    'bio' => $content->{'name'}, #$bio,
+    'bio' => $bio,
   };
 };
 
