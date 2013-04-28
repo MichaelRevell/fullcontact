@@ -1,9 +1,10 @@
 package FullContact;
 use LWP::Simple;                
-use JSON qw( decode_json ); 
+use JSON;
 use Data::Dumper;
 use Template;
-use strict;
+use File::Slurp;
+#use strict;
 use warnings;
 use Dancer ':syntax';
 
@@ -15,10 +16,11 @@ get '/' => sub {
 
 any '/email' => sub {
   my $email = param('email');
-  my $json = LWP::Simple::get("https://api.fullcontact.com/v2/person.json?email=$email&apiKey=f445a92bdd98c76c");
+  #my $json = LWP::Simple::get("https://api.fullcontact.com/v2/person.json?email=$email&apiKey=f445a92bdd98c76c");
+  my $json;
+  my $json = read_file("/Users/mars/Sites/dancer/FullContact/testdata.json");
   my $content = decode_json( $json );
   my @socialProfiles = @{$content->{'socialProfiles'}};
-  my $cat = Dumper @socialProfiles; #$content->{'socialProfiles'}[1]{'typeName'};
 
   my $bio = "";
   foreach my $p (@{$content->{'socialProfiles'}}) {
@@ -30,7 +32,7 @@ any '/email' => sub {
   template 'email', {
     'info' => $content,
     socialProfiles => \@socialProfiles,
-    'bio' => $bio,
+    'bio' => $content->{'name'}, #$bio,
   };
 };
 

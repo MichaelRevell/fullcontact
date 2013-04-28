@@ -1,11 +1,27 @@
+  <center><h1><% info.contactInfo.fullName %></h1></center>
+<table><tr><td>
+<div class="infoBox">
+  <div class="photos">
+  <%  FOREACH p IN info.photos %>
+    <div class="boxgrid">
+    <a href="<% p.url %>" rel="lightbox[profile]"><img src="<% p.url %>" /></a>
+    </div>
+  <% END %>
+</div>
+</div>
+</td><td>
+
 <div class="infoBox">
   <h2>General Info</h2>
   <ul>
     <li>Full Name: <% info.contactInfo.fullName %></li>
     <li>Bio: <% bio %></li>
     <li>Email: <% params.email %></li>
+    <li>Klout: <% info.digitalFootprint.scores.0.value %>
   </ul>
 </div>
+</td></tr>
+<td>
 
 <div class="infoBox">
   <h2>Demographics</h2>
@@ -15,27 +31,15 @@
     <li>Location: <% info.demographics.locationGeneral %></li>
   </ul>
 </div>
+</td><td>
 
 <div class="infoBox">
   <h2>Social Profiles</h2>
   <%  FOREACH p IN socialProfiles  %>
 <div>
-    <h3><% p.typeName %></h3>
-  <ul>
-    <li>Id: <% p.id %></li>
-    <li>Username: <% p.username %></li>
-    <li>Url: <% p.url %></li>
-  </ul>
+    <% p.typeName %>: <a href="<% p.url %>"><% p.username %></a>
 </div>
   <% END %>
 </div>
+</td></tr></table>
 
-<div class="infoBox">
-  <h2>Photos</h2>
-  <%  FOREACH p IN info.photos %>
-<div>
-    <h3><% p.type %></h3>
-    <img src="<% p.url %>" width="50" height="50" />
-</div>
-  <% END %>
-</div>

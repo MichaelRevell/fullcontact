@@ -187,3 +187,40 @@ padding-right: 160px;
 font-family: sans-serif;
 font-size: 10px;
 }
+
+.content {
+  text-align: left;
+  width: 800px;
+}
+.boxgrid {
+  margin-top: 22px;
+  background-attachment: scroll;
+  float: left;
+  background-image: none;
+  background-position: 0 0;
+  background-repeat: repeat;
+  margin-bottom: 24px;
+  overflow: hidden;
+  position: relative;
+  width: 180px;
+  height: 150px;
+  border: 6px solid #d2f7fd;
+  float: left;
+  list-style-type: none;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 0;
+}
+table tr td {
+  width: 40%;
+}
+.boxgrid img {
+  min-height: 100px;
+  min-width: 110px;
+}
+.photos {
+  height: 190px;
+  overflow: hidden;
+}
+.infoBox {
+}

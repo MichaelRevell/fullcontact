@@ -1,0 +1,156 @@
+{
+           "gitalFootprint": {
+                                  "scores": [
+                                                {
+                                                  "provider": "klout",
+                                                  "value": 49,
+                                                  "type": "general"
+                                                }
+                                              ],
+                                  "topics": [
+                                                {
+                                                  "provider": "klout",
+                                                  "value": "Atlanta"
+                                                }
+                                              ]
+                                },
+          "socialProfiles": [
+                                {
+                                  "typeName": "Facebook",
+                                  "url": "http://www.facebook.com/brantleybeaird",
+                                  "id": "12802982",
+                                  "type": "facebook",
+                                  "typeId": "facebook",
+                                  "username": "brantleybeaird"
+                                },
+                                {
+                                  "typeName": "Google Profile",
+                                  "url": "http://profiles.google.com/bbeaird",
+                                  "type": "googleprofile",
+                                  "id": "113602737798632766066",
+                                  "typeId": "googleprofile",
+                                  "username": "bbeaird"
+                                },
+                                {
+                                  "typeName": "Google Plus",
+                                  "url": "https://plus.google.com/113602737798632766066",
+                                  "type": "googleplus",
+                                  "id": "113602737798632766066",
+                                  "typeId": "googleplus",
+                                  "username": "bbeaird"
+                                },
+                                {
+                                  "typeName": "Plancast",
+                                  "url": "http://plancast.com/user/1674668",
+                                  "type": "plancast",
+                                  "id": "1674668",
+                                  "typeId": "plancast"
+                                },
+                                {
+                                  "typeName": "Twitter",
+                                  "url": "http://www.twitter.com/bcbeaird",
+                                  "type": "twitter",
+                                  "rss": "http://twitter.com/statuses/user_timeline/bcbeaird.rss",
+                                  "id": "27170892",
+                                  "typeId": "twitter",
+                                  "bio": "My life\"s mission statement is to live a happy, fun, successful life while bettering the lives of others around me everyday.",
+                                  "username": "bcbeaird"
+                                },
+                                {
+                                  "typeName": "Quora",
+                                  "url": "http://www.quora.com/brantley-beaird",
+                                  "type": "quora",
+                                  "typeId": "quora",
+                                  "username": "brantley-beaird"
+                                },
+                                {
+                                  "typeName": "Linkedin",
+                                  "url": "https://www.linkedin.com/in/brantleybeaird",
+                                  "type": "linkedin",
+                                  "typeId": "linkedin",
+                                  "username": "brantleybeaird"
+                                },
+                                {
+                                  "typeName": "Klout",
+                                  "url": "http://www.klout.com/bcbeaird",
+                                  "type": "klout",
+                                  "typeId": "klout",
+                                  "username": "bcbeaird"
+                                }
+                              ],
+          "contactInfo": {
+                             "fullName": "Brantley Beaird",
+                             "givenName": "Brantley",
+                             "familyName": "Beaird"
+                           },
+          "photos": [
+                        {
+                          "typeName": "Facebook",
+                          "url": "https://d2ojpxxtu63wzl.cloudfront.net/static/00085a1c1dbaf694b5a5ae8487f6b923_987e70c5d69fafef4e95e6821d66c5bed817146040efff8a78eeb5bf09961404",
+                          "type": "facebook",
+                          "typeId": "facebook"
+                        },
+                        {
+                          "typeName": "Other",
+                          "url": "https://d2ojpxxtu63wzl.cloudfront.net/static/d824bbe6c527125201013726f5930519_4d5d7c39eba36f2ff6c7b07c15e069f68314b15f7c242796cfc77636e69119f3",
+                          "type": "google profile",
+                          "typeId": "other"
+                        },
+                        {
+                          "typeName": "Facebook",
+                          "url": "https://d2ojpxxtu63wzl.cloudfront.net/static/d88d250f6ca0337dc3bf6b7b052c572d_1964d65291d998b1e127389a036ae148ca2dfc4275aae08b270bd86b6b053d6b",
+                          "type": "facebook",
+                          "typeId": "facebook"
+                        },
+                        {
+                          "typeName": "Quora",
+                          "url": "https://d2ojpxxtu63wzl.cloudfront.net/static/7487b534f106ce45477ed4c63bcd56de_f480563968a19712abe7c4546942c82892769b1f2a5d3b8bc968a9110b6d863f",
+                          "type": "quora",
+                          "typeId": "quora"
+                        },
+                        {
+                          "typeName": "Linkedin",
+                          "url": "https://d2ojpxxtu63wzl.cloudfront.net/static/c29598ff81e97082bf97f764ca950eec_da5e93a0867457948cc1a99abd91930351912cec66731d1cf4f1afdf3d91a4bf",
+                          "type": "linkedin",
+                          "typeId": "linkedin"
+                        },
+                        {
+                          "typeName": "Facebook",
+                          "url": "https://d2ojpxxtu63wzl.cloudfront.net/static/1af637111335d45898c9bcc91cde64dd_d08eed8a7bf35d86b9108181f4c7472824123aad0bde4f08fa70ad6b8689ae30",
+                          "type": "facebook",
+                          "typeId": "facebook"
+                        },
+                        {
+                          "typeName": "Google Plus",
+                          "url": "https://d2ojpxxtu63wzl.cloudfront.net/static/bb9f5b3a088e205a373d1f717546ac30_d89d1bb487edd1584f5bc3e3ea40688ab5cdfa3df19db3a7208ff5c81214a2fb",
+                          "type": "googleplus",
+                          "typeId": "googleplus"
+                        },
+                        {
+                          "typeName": "Facebook",
+                          "url": "https://d2ojpxxtu63wzl.cloudfront.net/static/33d8b418755f1c9958b9a1ff2f22e629_72e6aca2fcd928d54c659dfdc02a21540c78358d642ae5ca08680336fa96c2a2",
+                          "type": "facebook",
+                          "typeId": "facebook"
+                        },
+                        {
+                          "typeName": "Facebook",
+                          "url": "https://d2ojpxxtu63wzl.cloudfront.net/static/fc65f37d00709c8bc04f5acd102546ee_241fd4749c6578cc3b5384ace7394858619624f1a8928ba0fc5a3221a8bbfdbe",
+                          "type": "facebook",
+                          "typeId": "facebook"
+                        }
+                      ],
+          "requestId": "cfedde9b-f444-497b-b2d9-310f53a05700",
+          "status": 200,
+          "demographics": {
+                              "ageRange": "25-34",
+                              "age": "24",
+                              "gender": "Male",
+                              "locationGeneral": "Palo Alto, California"
+                            },
+          "enhancedData": [
+                              {
+                                "url": "https://api.fullcontact.com/v2/enhanced.json?email=ae04c3ed6a17a6b61c5d698868dd053c"
+                              }
+                            ],
+          "likelihood": "0.92"
+        }
