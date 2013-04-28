@@ -1,5 +1,5 @@
 <div>
-  <form>
+  <form action="/email" method="post">
     Email Address: <input type="text" name="email" /><br />
   </form>
 </div>
