@@ -9,9 +9,9 @@ $eumm_version =~ s/_//;
 
 WriteMakefile(
     NAME                => 'FullContact',
-    AUTHOR              => q{YOUR NAME <youremail@example.com>},
+    AUTHOR              => q{Michael Revell <mikearevell@gmail.com>},
     VERSION_FROM        => 'lib/FullContact.pm',
-    ABSTRACT            => 'YOUR APPLICATION ABSTRACT',
+    ABSTRACT            => 'Find contact information from an email address',
     ($eumm_version >= 6.3001
       ? ('LICENSE'=> 'perl')
       : ()),
