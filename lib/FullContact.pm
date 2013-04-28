@@ -67,24 +67,38 @@ get '/' => sub {
     template 'index';
 };
 
-any '/email/all' => sub {
+get '/users/' => sub {
   my $results = select_users();
   for my $row (@$results) {
     my ($id, $email, $json) = @$row;
-    print "$email yo \n";
+    #print "$email yo \n";
   }
+  set template => 'template_toolkit';
+  template 'users/index', {
+    'users' => \@$results,
+  };
 };
 
-any '/users/create' => sub {
+post '/users/create' => sub {
   my $email = param('email');
   $email = "mars8082686\@gmail.com";
-  #my $json = LWP::Simple::get("https://api.fullcontact.com/v2/person.json?email=$email&apiKey=f445a92bdd98c76c");
   my $json;
   my $user;
+  $user  = select_user_id(params->{'id'});
+  $json = $user->{'json'};
+  my $id = $user->{'id'};
+  $user = $user->{'email'};
+  if($user eq ""){
+    $json = read_file("/Users/mars/Sites/dancer/FullContact/testdata.json");
+    #my $json = LWP::Simple::get("https://api.fullcontact.com/v2/person.json?email=$email&apiKey=f445a92bdd98c76c");
+    insert_user($email, $json);
+    $user  = select_user($email);
+    $id = $user->{'id'};
+  }
   redirect '/users/$id'
 };
 
-any '/users/:id' => sub {
+get '/users/:id' => sub {
   my $user  = select_user_id(params->{'id'});
   my $email = $user->{'email'};
   my $json = $user->{'json'};
@@ -99,11 +113,10 @@ any '/users/:id' => sub {
     }
   }
   set template => 'template_toolkit';
-  template 'email', {
+  template 'users/show', {
     'info' => $content,
     socialProfiles => \@socialProfiles,
     'bio' => $bio,
-    'klout' => $content->{'digitalFootprint'}{'scores'}[0]{'value'},
   };
 };
 

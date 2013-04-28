@@ -1,12 +1,10 @@
-  <center><h1><% info.contactInfo.fullName %></h1></center>
+<h1><% info.contactInfo.fullName %></h1>>
 <table><tr><td>
 <div class="infoBox">
   <div class="photos">
   <%  FOREACH p IN info.photos %>
     <div class="boxgrid">
-      <span>Click for more</span>
-      <a href="<% p.url %>" rel="lightbox[profile]"><img src="<% p.url %>" alt="Photo from <% p.typeName %>" /></a>
-      <br>
+    <a href="<% p.url %>" rel="lightbox[profile]"><img src="<% p.url %>" alt="Photo from <% p.typeName %>" /></a>
     </div>
   <% END %>
 </div>
@@ -19,7 +17,6 @@
     <li>Full Name: <% info.contactInfo.fullName %></li>
     <li>Bio: <% bio %></li>
     <li>Email: <% params.email %></li>
-    <li>Klout: <% klout  %>
   </ul>
 </div>
 </td></tr>

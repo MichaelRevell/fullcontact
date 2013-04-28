@@ -1,0 +1,4 @@
+<h1>Previous Users</h1>
+<%  FOREACH u IN users %>
+  <a href="/users<% u.0 %>"><%u.1 %></a><br>
+<% END %>

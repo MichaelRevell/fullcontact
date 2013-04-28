@@ -1,4 +1,5 @@
-<div>
+<h1>Enter Email Address</h1>
+<div class="infoBox">
   <form action="/email" method="post">
     Email Address: <input type="text" name="email" /><br />
   </form>
