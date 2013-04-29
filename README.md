@@ -1,7 +1,7 @@
-fullcontact
+Full Contact App
 ===========
 
-Finds publicly available infromation and social media accounts based on an email
+Finds publicly available infromation and social media accounts based on an email. It uses the Full Contact API.
 
 ## How to Install
 

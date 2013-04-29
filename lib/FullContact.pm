@@ -48,7 +48,10 @@ get '/users/:id' => sub {
   my $json = $user->{'json'};
 
   my $content = decode_json( $json );
-  my @socialProfiles = @{$content->{'socialProfiles'}};
+  my @socialProfiles;
+  try {
+    @socialProfiles = @{$content->{'socialProfiles'}};
+  };
 
   # Search for a useable bio
   my $bio = "";
@@ -73,21 +76,15 @@ get '/users/:id/destroy' => sub {
 };
 
 # Dump json. Mainly for testing purposes
-get '/users/:id/json' => sub {
+get '/users/:id/dump' => sub {
   my $user  = select_user_id(params->{'id'});
-  my $email = $user->{'email'};
   my $json = $user->{'json'};
 
   my $content = decode_json( $json );
-  my @socialProfiles = @{$content->{'socialProfiles'}};
-
-  my $bio = "";
-  foreach my $p (@{$content->{'socialProfiles'}}) {
-    if (exists $p->{'bio'}) {
-      $bio = $p->{'bio'};
-    }
-  }
-  print Dumper $content;
+  my $dump = Dumper $content;
+  template 'users/dump', {
+    'raw' => $dump,
+  };
 };
 
 get "/error" => sub {

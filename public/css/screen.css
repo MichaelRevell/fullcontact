@@ -862,3 +862,5 @@ hr {
 h1 {
   margin-bottom: 20px;
 }
+table { table-layout: fixed; }
+table th, table td { overflow: hidden; }
