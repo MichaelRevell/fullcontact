@@ -1,7 +1,7 @@
 <h1><% info.contactInfo.fullName %></h1>
 <table><tr><td>
 <div class="infoBox">
-  <div class="photos">
+  <div class="photos" id="photos">
   <%  FOREACH p IN info.photos %>
     <div class="boxgrid">
     <a href="<% p.url %>" rel="lightbox[profile]"><img src="<% p.url %>" alt="Photo from <% p.typeName %>" /></a>

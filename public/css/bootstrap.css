@@ -6110,3 +6110,11 @@ a.badge:focus {
 .btn {
   margin-top: -10px;
 }
+
+
+.table-hover tbody tr:hover > td, .table-hover tbody tr:hover > th {
+  background-color: rgb(58, 58, 58);
+}
+.table th, .table td {
+  border: none;
+}

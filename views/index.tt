@@ -2,7 +2,8 @@
 <div class="infoBox" style="margin-top: 30px; color=#444; text-align: center" >
   <form action="/users/create" method="post">
     <input type="text" name="email" style="color=#444;" placeholder="Email" />
-    <input type="submit" class="btn">
+    <input type="submit" value="Search" class="btn">
 <br />
   </form>
+<p class="msg">We will attempt to find as much information on this person as possible, based on their email.</p>
 </div>

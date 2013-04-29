@@ -1,5 +1,5 @@
 package FullContact;
-use LWP::Simple;                
+use LWP::Simple;
 use JSON;
 use Data::Dumper;
 use Template;
@@ -21,10 +21,6 @@ get '/' => sub {
 
 get '/users/' => sub {
   my $results = select_users();
-  for my $row (@$results) {
-    my ($id, $email, $json) = @$row;
-    #print "$email yo \n";
-  }
   set template => 'template_toolkit';
   template 'users/index', {
     'users' => \@$results,
@@ -33,24 +29,17 @@ get '/users/' => sub {
 
 post '/users/create' => sub {
   my $email = param('email');
-  my $json;
-  my $user_email = "";
   my $user  = select_user($email);
-  $json = $user->{'json'};
+  my $json = $user->{'json'};
   my $id = $user->{'id'};
-  $user_email = $user->{'email'};
+  my $user_email = $user->{'email'};
   if(!defined $user_email ) {
       my $json = LWP::Simple::get("https://api.fullcontact.com/v2/person.json?email=$email&apiKey=e664d3674f971206");
       insert_user($email, $json);
       $user  = select_user($email);
       $id = $user->{'id'};
   }
-  if(!defined $id){
-    redirect "/error";
-  }
-  else {
-    redirect "/users/$id"
-  }
+  defined $id ? redirect "/users/$id" : redirect "/error";
 };
 
 get '/users/:id' => sub {
@@ -61,6 +50,7 @@ get '/users/:id' => sub {
   my $content = decode_json( $json );
   my @socialProfiles = @{$content->{'socialProfiles'}};
 
+  # Search for a useable bio
   my $bio = "";
   foreach my $p (@{$content->{'socialProfiles'}}) {
     if (exists $p->{'bio'}) {
@@ -76,6 +66,13 @@ get '/users/:id' => sub {
   };
 };
 
+get '/users/:id/destroy' => sub {
+  my $id = params->{"id"};
+  execute_sql("delete from users where id='$id'");
+  redirect '/users/';
+};
+
+# Dump json. Mainly for testing purposes
 get '/users/:id/json' => sub {
   my $user  = select_user_id(params->{'id'});
   my $email = $user->{'email'};
@@ -113,48 +110,44 @@ sub init_db {
 }
 
 sub insert_user {
-  local($a, $b);
-  ($a, $b) = ($_[0], $_[1]);
+  my $email = $_[0];
+  my $json = $_[1];
   my $db = connect_db();
   my $sql = 'insert into users (email, json) values (?, ?)';
   my $sth = $db->prepare($sql);
   local $SIG{__WARN__} = sub {};
   try {
-    $sth->execute($a, $b) or die;
-    #die;
+    $sth->execute($email, $json) or die;
   } catch {
     redirect '/error';
   };
 }
 
 sub select_user {
-  local($a, $b);
-  ($a, $b) = ($_[0], $_[1]);
-  my $db = connect_db();
-  my $sql = "select id, email, json from users where email='$a' limit 1";
-  my $sth = $db->prepare($sql) or die $db->errstr;
-  $sth->execute or die $sth->errstr;
+  my $email = $_[0];
+  my $sth = execute_sql("select id, email, json from users where email='$email' limit 1");
   my $data = $sth->fetchall_hashref('email');
-  return $data->{"$a"};
+  return $data->{"$email"};
 }
 sub select_user_id {
-  my $id;
-  $id = $_[0];
-  my $db = connect_db();
-  my $sql = "select id, email, json from users where id='$id' limit 1";
-  my $sth = $db->prepare($sql) or die $db->errstr;
-  $sth->execute or die $sth->errstr;
+  my $id = $_[0];
+  my $sth = execute_sql("select id, email, json from users where id='$id' limit 1");
   my $data = $sth->fetchall_hashref('id');
   return $data->{"$id"};
 }
 
 sub select_users {
-  my $db = connect_db();
-  my $sql = "select id, email, json from users order by id desc";
-  my $sth = $db->prepare($sql) or die $db->errstr;
-  $sth->execute or die $sth->errstr;
+  my $sth = execute_sql("select id, email, json from users order by id desc");
   my $data = $sth->fetchall_arrayref;
   return $data;
+}
+
+sub execute_sql {
+  my $db = connect_db();
+  my $sql = $_[0];
+  my $sth = $db->prepare($sql) or die $db->errstr;
+  $sth->execute or die $sth->errstr;
+  return $sth
 }
 
 init_db();

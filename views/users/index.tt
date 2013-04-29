@@ -1,4 +1,22 @@
 <h1>Previous Users</h1>
-<%  FOREACH u IN users %>
-  <a href="/users/<% u.0 %>"><%u.1 %></a><br>
-<% END %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <%  FOREACH u IN users %>
+    <tr>
+      <td><% u.0 %></td>
+      <td><a href="/users/<% u.0 %>"><%u.1 %></a></td>
+      <td><a href="/users/<% u.0 %>">Show</a></td>
+      <td><a href="/users/<% u.0 %>/destroy">Delete</a></td>
+    </tr>
+  <% END %>
+  </tbody>
+</table>

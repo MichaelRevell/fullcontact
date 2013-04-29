@@ -37,6 +37,8 @@ table tr td {
 .boxgrid img {
   min-height: 150px;
   min-width: 180px;
+  max-height: 320px;
+  max-width: 290px;
 }
 .photos {
   height: 190px;
@@ -49,4 +51,17 @@ h1 {
 }
 .content {
   margin-top: 60px;
+}
+.msg-sorry {
+  width: 480px;
+  margin-left: 150px;
+  margin-top: 20px;
+}
+.msg {
+  width: 400px;
+  margin-left: 200px;
+  margin-top: 20px;
+}
+input[type="text"] {
+  width: 290px;
 }
