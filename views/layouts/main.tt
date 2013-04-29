@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <span class="brand">FULL CONTACT APP</span>
+          <a href="/" class="brand">FULL CONTACT APP</a>
           <div class="nav-collapse">
             <ul class="nav">
               <li class=""><a href="/">Search by Email</a></li>
@@ -51,9 +51,9 @@
 <center>
 <div class="content">
   <% content %>
-</div>
-<div id="footer">
-Powered by <a href="http://perldancer.org/">Dancer</a> <% dancer_version %>
+  <div id="footer">
+  Powered by <a href="http://perldancer.org/">Dancer</a> <% dancer_version %>
+  </div>
 </div>
 </body>
 </html>
