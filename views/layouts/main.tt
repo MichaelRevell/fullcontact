@@ -4,6 +4,7 @@
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=<% settings.charset %>" />
 <title>FullContact</title>
+<link rel="stylesheet" href="<% request.uri_base %>/css/bootstrap.css" />
 <link rel="stylesheet" href="<% request.uri_base %>/css/style.css" />
 <link rel="stylesheet" href="<% request.uri_base %>/css/error.css" />
 <link rel="stylesheet" href="<% request.uri_base %>/css/lightbox.css" />
@@ -23,6 +24,30 @@
 
 </head>
 <body>
+<div class="page-container">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <span class="brand">FULL CONTACT APP</span>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class=""><a href="/">Search by Email</a></li>
+              <li class=""><a href="/users/">Previously Searched Emails</a></li>
+            </ul>
+
+            <ul class="nav pull-right">
+                <li class=""> </li>
+                <li class="">  </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 <center>
 <div class="content">
   <% content %>

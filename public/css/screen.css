@@ -104,9 +104,11 @@ body {
 }
 
 /* line 36, ../sass/screen.sass */
-body, input, textarea {
+body {
   color: white;
   text-shadow: 0 -1px 0 black;
+}
+body, input, textarea {
   font-size: 16px;
   line-height: 1.625em;
   font-family: "Open Sans", "lucida grande", tahoma, sans-serif;
@@ -855,4 +857,8 @@ hr {
   .forums .speech, .forums .link {
     float: none;
   }
+}
+
+h1 {
+  margin-bottom: 20px;
 }

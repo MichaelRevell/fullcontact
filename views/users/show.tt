@@ -1,4 +1,4 @@
-<h1><% info.contactInfo.fullName %></h1>>
+<h1><% info.contactInfo.fullName %></h1>
 <table><tr><td>
 <div class="infoBox">
   <div class="photos">
@@ -16,7 +16,7 @@
   <ul>
     <li>Full Name: <% info.contactInfo.fullName %></li>
     <li>Bio: <% bio %></li>
-    <li>Email: <% params.email %></li>
+    <li>Email: <% email %></li>
   </ul>
 </div>
 </td></tr>

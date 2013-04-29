@@ -1,6 +1,8 @@
 <h1>Enter Email Address</h1>
-<div class="infoBox">
-  <form action="/email" method="post">
-    Email Address: <input type="text" name="email" /><br />
+<div class="infoBox" style="margin-top: 30px; color=#444; text-align: center" >
+  <form action="/users/create" method="post">
+    <input type="text" name="email" style="color=#444;" placeholder="Email" />
+    <input type="submit" class="btn">
+<br />
   </form>
 </div>

@@ -30,7 +30,7 @@ sub insert_user {
   my $db = connect_db();
   my $sql = 'insert into users (email, json) values (?, ?)';
   my $sth = $db->prepare($sql) or die $db->errstr;
-  $sth->execute($a, $b);# or die $sth->errstr;
+  $sth->execute($a, $b) or die $sth->errstr;
 }
 
 sub select_user {
@@ -81,21 +81,21 @@ get '/users/' => sub {
 
 post '/users/create' => sub {
   my $email = param('email');
-  $email = "mars8082686\@gmail.com";
   my $json;
-  my $user;
-  $user  = select_user_id(params->{'id'});
+  my $user_email = "";
+  my $user  = select_user($email);
   $json = $user->{'json'};
   my $id = $user->{'id'};
-  $user = $user->{'email'};
-  if($user eq ""){
-    $json = read_file("/Users/mars/Sites/dancer/FullContact/testdata.json");
-    #my $json = LWP::Simple::get("https://api.fullcontact.com/v2/person.json?email=$email&apiKey=f445a92bdd98c76c");
+  $user_email = $user->{'email'};
+  if(!defined $user_email ) {
+    #$json = read_file("/Users/mars/Sites/dancer/FullContact/testdata.json");
+    my $json = LWP::Simple::get("https://api.fullcontact.com/v2/person.json?email=$email&apiKey=e664d3674f971206");
+    print ref($json);
     insert_user($email, $json);
     $user  = select_user($email);
     $id = $user->{'id'};
   }
-  redirect '/users/$id'
+  redirect "/users/$id"
 };
 
 get '/users/:id' => sub {
@@ -115,9 +115,27 @@ get '/users/:id' => sub {
   set template => 'template_toolkit';
   template 'users/show', {
     'info' => $content,
+    'email' => $email,
     socialProfiles => \@socialProfiles,
     'bio' => $bio,
   };
+};
+
+get '/users/:id/json' => sub {
+  my $user  = select_user_id(params->{'id'});
+  my $email = $user->{'email'};
+  my $json = $user->{'json'};
+
+  my $content = decode_json( $json );
+  my @socialProfiles = @{$content->{'socialProfiles'}};
+
+  my $bio = "";
+  foreach my $p (@{$content->{'socialProfiles'}}) {
+    if (exists $p->{'bio'}) {
+      $bio = $p->{'bio'};
+    }
+  }
+  print Dumper $content;
 };
 
 init_db();
